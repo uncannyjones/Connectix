@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html 
 lang="en"
-th:fragment="parent" xmlns:th="http://www.thymeleaf.org">
+th:fragment="parent(content)" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@ th:fragment="parent" xmlns:th="http://www.thymeleaf.org">
     <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
 </head>
 <body>
-    Base Page Content
+    <section th:replace="${content}"></section>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 </body>

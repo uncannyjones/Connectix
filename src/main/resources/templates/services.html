@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{base :: parent}">
+<html lang="en" th:replace="~{base :: parent(~{::#content})}">
 <head>
 
 </head>
 <body>
-    
+    <section id="content">
+        <h1>Welcome to services page</h1>
+        <h2>Services by Connectix</h2>
+    </section>
 </body>
 </html>
