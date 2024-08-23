@@ -1,0 +1,22 @@
+{
+  "name": "connectix",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "connectix": "file:",
+    "fast-glob": "^3.3.2",
+    "micromatch": "^4.0.7",
+    "postcss": "^8.4.41"
+  },
+  "devDependencies": {
+    "tailwindcss": "^2.0.4"
+  }
+}
