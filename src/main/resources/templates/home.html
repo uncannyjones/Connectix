@@ -1,37 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
-    
-
+    <title>Home Page</title>
 </head>
 <body>
-    <div class="bg-gray-200 w-1/2 p-4 flex flex-col justify-center items-center space-y-3 mx-auto mt-4 ">
-        <h1 data-th-text="${Name}" class="text-2 font-bold ">Welcome to home Page</h1>
-        <p class="text-xl text-gray-700">Github Repo Link : <span data-th-text="${GithubRepo}"></span></p>
-
-        <a data-th-href="${GithubRepo}">Click to Open</a>
-        <p class="text-gray-600">
-            Connectix is a smart contact management platform designed to streamline and enhance how individuals and businesses manage their contacts. 
-            Through advanced organizational tools and intelligent features, Connectix simplifies contact storage, retrieval, and engagement.
-        </p>
-        <div>
-            <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600 ">Click Here</button>
-        </div>
-       
-
+    <div id="content">
+        <h1>Welcome to Home Page</h1>
+        <p>This is Connectix</p>
     </div>
-    
-    
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
-
+    <script>
+        console.log("Home Page");
+    </script>
+      <script>
+        console.log("Second Home Page");
+    </script>
 </body>
 </html>

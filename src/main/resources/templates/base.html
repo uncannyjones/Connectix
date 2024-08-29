@@ -1,17 +1,41 @@
 <!DOCTYPE html>
 <html 
 lang="en"
-th:fragment="parent(content)" xmlns:th="http://www.thymeleaf.org">
+th:fragment="parent(content,title,script)" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title th:replace="${title}">Connectix</title>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
 </head>
-<body>
-    <section th:replace="${content}"></section>
+<body> 
+    <!--comma header-->
 
+    <ul class="p-4">
+        <li>
+            <a data-th-href="@{'/home'}">Home</a>
+        </li>
+        <li>
+            <a data-th-href="@{'/about'}">About</a>
+        </li>
+        <li>
+            <a data-th-href="@{'/services'}">Sevices</a>
+        </li>
+    </ul>
+
+    <!--main-content-->
+    <div class="p-4">
+        <section th:replace="${content}"></section>
+    </div>  
+    
+    <!--flowbite-content-->
+
+    <!--footer-->
+    <footer class="p-4">
+        Connectix Smart Contact Management App 
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <th:block th:replace="${script}"></th:block>
 </body>
 </html>
