@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 
 @Entity(name = "user")
 @Table(name = "users")
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -35,10 +35,12 @@ public class User {
     private String email;
     
     private String password;
+    @Column(length = 1000)
     private String about;
     
-    @Column(columnDefinition = "TEXT")
+    @Column(length = 1000)
     private String profPic;
+    private String phoneNumber;
     
     @Column(columnDefinition = "TEXT")
     private String gender;
@@ -55,6 +57,8 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Contact> contacts = new ArrayList<>();
+
+    
 
     
 }
