@@ -5,13 +5,14 @@ import java.util.*;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -44,19 +45,27 @@ public class User {
     
     @Column(columnDefinition = "TEXT")
     private String gender;
+   
     @Builder.Default
     private boolean enabled = false;
     @Builder.Default
     private boolean emailVerified = false;
     @Builder.Default
     private boolean phoneVerified = false;
+    
+    @Enumerated
     @Builder.Default
     private Providers provider = Providers.SELF;
     private String providerUserId;
 
-
+    @Builder.Default
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Contact> contacts = new ArrayList<>();
+
+   
+
+
+   
 
     
 
