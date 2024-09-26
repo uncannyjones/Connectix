@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"  >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-th-text="${loggedInUser.name}+' | Connectix'">Profile Page</title>
+</head>
+<body>
+    <div id="content">
+        <!-- sidebar -->
+        <!-- user is logged in : sidebar -->
+        <div th:if="${loggedInUser}">
+          <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+        </div>
+        <div class="sm:pl-64 pt-20" style="height: 1000px">
+          <div class="flex justify-center flex-col items-center">
+            <h1 class="text-5xl">Welcome to Profile page</h1>
+            <p>
+              Welcome to Connectix a smart contact Management Website
+            </p>
+          </div>
+        </div>
+      </div>
+      <script>
+        console.log("this is profile page");
+      </script>
+</body>
+</html>

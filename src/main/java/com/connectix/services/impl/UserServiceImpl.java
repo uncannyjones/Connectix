@@ -3,12 +3,13 @@ package com.connectix.services.impl;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.connectix.helpers.AppConstants;
 import com.connectix.entities.User;
 import com.connectix.helpers.ResourceNotFoundException;
 import com.connectix.services.userService;
@@ -19,6 +20,10 @@ import com.connectix.repositories.userRepo;
 public class UserServiceImpl implements userService {
     @Autowired
     private userRepo userRepo;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     
     @Override
@@ -33,6 +38,9 @@ public class UserServiceImpl implements userService {
         user.setUserId(userId);
     
         // Encode password
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        // set the user role
+        user.setRoleList(List.of(AppConstants.ROLE_USER));
         
     
         logger.info("Saving user with email: {}", user.getEmail());
@@ -84,6 +92,12 @@ public class UserServiceImpl implements userService {
     @Override
     public List<User> getAllUsers() {
         return userRepo.findAll();
+    }
+
+    @Override
+    public User getUserbyEmail(String email) {
+        return userRepo.findByEmail(email).orElse(null);
+
     }
 
 
